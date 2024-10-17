@@ -68,36 +68,27 @@ public class Main
 
     static int task3(int[] array)
     {
-        int[] array1 = {-612, 3, 8, -7, 19, -85, 77};
-        int a_l = array1.length;
-        int max_sum = Integer.MIN_VALUE;
-        int tmp_sum = 0;
+        int [] time_mas = {};
 
-        for (int j = 0; j < a_l; j++)
+        int a_l = array.length;
+
+        int max_sum = Integer.MIN_VALUE;
+        for (int i = 0; i < a_l; i++)
         {
-            int ind = 0;
-            int tmp = Integer.MIN_VALUE;
-            for  (int i = 0; i < a_l; i++)
+            int tmp_sum = array[i];
+            for  (int j = i + 1; j < a_l; j++)
             {
-                if (tmp < array1[i])
+                tmp_sum = tmp_sum + array[j];
+                if (max_sum < tmp_sum)
                 {
-                    tmp = array1[i];
-                    ind =i;
+                    max_sum = tmp_sum;
+                }
+                else
+                {
+                    break;
                 }
             }
-            array1[ind] = Integer.MIN_VALUE;
-            tmp_sum = tmp_sum + tmp;
-
-            if(max_sum < tmp_sum)
-            {
-                max_sum = tmp_sum;
-            }
-            else
-            {
-                break;
-            }
         }
-
         return max_sum;
     }
 
@@ -182,14 +173,15 @@ public class Main
         System.out.println(Arrays.toString(task2(array1, array2)));
 
         //Task3
-        System.out.println(task3(array1));
+        int[] array3 = {-612, 3, 8, -7, 19, -85, 77};
+        System.out.println(task3(array3));
 
         //Task4
-        int[][] array3 = {
+        int[][] array4 = {
                 {3, 6, 9, 12},
                 {2, 5, 8, 11},
                 {1, 4, 7, 10}};
-        int[][] array3_new = task4(array3);
+        int[][] array3_new = task4(array4);
         for (int[] str : array3_new)
         {
             for (int el : str)
@@ -200,21 +192,21 @@ public class Main
         }
 
         //Task5
-        int[] array4 = {11, 2, 612, 8, 3};
+        int[] array5 = {11, 2, 612, 8, 3};
         int target = 13;
-        System.out.println(Arrays.toString(task5(array4, target)));
+        System.out.println(Arrays.toString(task5(array5, target)));
 
         //Task6
-        int[][] array5 = {
+        int[][] array6 = {
                 {1, 2, 3, 4, 5},
                 {6, 7, 8, 9, 10}};
-        System.out.println(task6(array5));
+        System.out.println(task6(array6));
 
         //Task7
-        System.out.println(Arrays.toString(task7(array5)));
+        System.out.println(Arrays.toString(task7(array6)));
 
         //Task8
-        int[][] result = task8(array3);
+        int[][] result = task8(array4);
         for (int[] str : result)
         {
             for (int el : str)
