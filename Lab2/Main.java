@@ -68,24 +68,23 @@ public class Main
 
     static int task3(int[] array)
     {
-        int [] time_mas = {};
-
         int a_l = array.length;
-
+        int tmp_sum = 0;
         int max_sum = Integer.MIN_VALUE;
-        for (int i = 0; i < a_l; i++)
-        {
-            int tmp_sum = array[i];
-            for  (int j = i + 1; j < a_l; j++)
+        for (int k =0; k<a_l; k++){
+
+
+            for (int step = 2; step <= a_l; step++)
             {
-                tmp_sum = tmp_sum + array[j];
+                tmp_sum = array[k];
+                for  (int i = k+1; i < step; i++)
+                {
+
+                    tmp_sum = tmp_sum + array[i];
+                }
                 if (max_sum < tmp_sum)
                 {
                     max_sum = tmp_sum;
-                }
-                else
-                {
-                    break;
                 }
             }
         }
